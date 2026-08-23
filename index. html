@@ -1,918 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-  <meta name="description"
-        content="AI Made Easy — a beginner-friendly guide to using Artificial Intelligence in everyday life.">
-
-  <meta name="theme-color" content="#6c4cff">
-
-  <title>AI Made Easy | Learn AI Without the Confusion</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f8f7ff;
-      color: #222;
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    .container {
-      width: 92%;
-      max-width: 1050px;
-      margin: auto;
-    }
-
-    /* HERO */
-
-    .hero {
-      background:
-        radial-gradient(circle at top right, #9d7cff 0%, transparent 35%),
-        linear-gradient(135deg, #5b21b6, #7c3aed, #4f46e5);
-      color: white;
-      padding: 70px 0 80px;
-      text-align: center;
-    }
-
-    .badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.18);
-      border: 1px solid rgba(255,255,255,0.3);
-      padding: 8px 16px;
-      border-radius: 30px;
-      font-size: 14px;
-      margin-bottom: 22px;
-    }
-
-    .hero h1 {
-      font-size: clamp(42px, 10vw, 78px);
-      line-height: 1.05;
-      margin-bottom: 20px;
-      font-weight: 800;
-    }
-
-    .hero h1 span {
-      color: #ffd86b;
-    }
-
-    .hero p {
-      max-width: 720px;
-      margin: 0 auto 30px;
-      font-size: clamp(18px, 4vw, 23px);
-      color: #f2edff;
-    }
-
-    .cta {
-      display: inline-block;
-      background: #ffcf33;
-      color: #261300;
-      padding: 17px 30px;
-      border-radius: 12px;
-      font-weight: 800;
-      font-size: 18px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-      transition: 0.2s;
-    }
-
-    .cta:hover {
-      transform: translateY(-2px);
-      background: #ffe16b;
-    }
-
-    .small-note {
-      margin-top: 14px;
-      font-size: 13px;
-      opacity: 0.85;
-    }
-
-    /* INTRO */
-
-    .intro {
-      background: white;
-      padding: 60px 0;
-      text-align: center;
-    }
-
-    .intro h2,
-    .section-title {
-      font-size: clamp(30px, 7vw, 46px);
-      line-height: 1.2;
-      margin-bottom: 18px;
-      color: #27115f;
-    }
-
-    .intro p {
-      max-width: 750px;
-      margin: auto;
-      color: #555;
-      font-size: 18px;
-    }
-
-    /* BENEFITS */
-
-    .section {
-      padding: 65px 0;
-    }
-
-    .section-title {
-      text-align: center;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      color: #666;
-      max-width: 700px;
-      margin: 0 auto 35px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .card {
-      background: white;
-      padding: 28px 22px;
-      border-radius: 18px;
-      box-shadow: 0 8px 30px rgba(45, 20, 100, 0.08);
-      border: 1px solid #eee9ff;
-    }
-
-    .icon {
-      width: 55px;
-      height: 55px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #eee9ff;
-      border-radius: 15px;
-      font-size: 27px;
-      margin-bottom: 17px;
-    }
-
-    .card h3 {
-      color: #351276;
-      margin-bottom: 9px;
-      font-size: 21px;
-    }
-
-    .card p {
-      color: #666;
-      font-size: 15px;
-    }
-
-    /* WHAT YOU GET */
-
-    .inside {
-      background: #171027;
-      color: white;
-    }
-
-    .inside .section-title {
-      color: white;
-    }
-
-    .inside .section-subtitle {
-      color: #d6cdea;
-    }
-
-    .check-list {
-      max-width: 720px;
-      margin: auto;
-      display: grid;
-      gap: 14px;
-    }
-
-    .check {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 17px;
-      border-radius: 12px;
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    .check-mark {
-      color: #ffd23f;
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    /* HOW IT HELPS */
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .step {
-      text-align: center;
-      background: white;
-      padding: 30px 20px;
-      border-radius: 18px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-    }
-
-    .number {
-      width: 50px;
-      height: 50px;
-      margin: 0 auto 15px;
-      border-radius: 50%;
-      background: #6d4aff;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    .step h3 {
-      color: #351276;
-      margin-bottom: 8px;
-    }
-
-    .step p {
-      color: #666;
-      font-size: 15px;
-    }
-
-    /* SOCIAL PROOF */
-
-    .proof {
-      background: #eeeaff;
-      text-align: center;
-    }
-
-    .quote {
-      background: white;
-      max-width: 750px;
-      margin: 0 auto;
-      padding: 35px 25px;
-      border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(50,20,100,0.08);
-    }
-
-    .stars {
-      color: #f5b900;
-      font-size: 22px;
-      margin-bottom: 15px;
-    }
-
-    .quote p {
-      font-size: 18px;
-      color: #444;
-      font-style: italic;
-    }
-
-    .quote strong {
-      display: block;
-      margin-top: 18px;
-      color: #351276;
-    }
-
-    /* CTA */
-
-    .final-cta {
-      background:
-        linear-gradient(135deg, #6d28d9, #4338ca);
-      color: white;
-      text-align: center;
-      padding: 75px 20px;
-    }
-
-    .final-cta h2 {
-      font-size: clamp(32px, 8vw, 50px);
-      margin-bottom: 15px;
-      line-height: 1.15;
-    }
-
-    .final-cta p {
-      max-width: 650px;
-      margin: 0 auto 28px;
-      color: #eee8ff;
-      font-size: 18px;
-    }
-
-    /* FAQ */
-
-    .faq {
-      max-width: 760px;
-      margin: auto;
-    }
-
-    details {
-      background: white;
-      margin-bottom: 12px;
-      border-radius: 12px;
-      padding: 18px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-    }
-
-    summary {
-      cursor: pointer;
-      font-weight: bold;
-      color: #351276;
-      font-size: 17px;
-    }
-
-    details p {
-      margin-top: 12px;
-      color: #666;
-    }
-
-    /* FOOTER */
-
-    footer {
-      background: #0f0b18;
-      color: #aaa;
-      text-align: center;
-      padding: 35px 20px;
-    }
-
-    footer h3 {
-      color: white;
-      font-size: 23px;
-      margin-bottom: 8px;
-    }
-
-    footer p {
-      font-size: 14px;
-      margin: 5px 0;
-    }
-
-    .social-links {
-      margin-top: 18px;
-    }
-
-    .social-links a {
-      display: inline-block;
-      margin: 5px;
-      padding: 8px 13px;
-      border-radius: 8px;
-      background: #241a35;
-      color: white;
-      font-size: 13px;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 750px) {
-
-      .hero {
-        padding: 55px 0 65px;
-      }
-
-      .cards,
-      .steps {
-        grid-template-columns: 1fr;
-      }
-
-      .section {
-        padding: 50px 0;
-      }
-
-      .card,
-      .step {
-        padding: 25px 20px;
-      }
-
-      .cta {
-        width: 90%;
-        max-width: 380px;
-      }
-
-      .hero p {
-        font-size: 17px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Made Easy | Learn AI Without the Confusion</title>
+
+<meta name="description" content="AI Made Easy is a beginner-friendly guide to using artificial intelligence in everyday life.">
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f8fc;
+  color: #202124;
+  line-height: 1.6;
+}
+
+.container {
+  width: 92%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+header {
+  background: white;
+  padding: 18px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #6c4cff;
+}
+
+.hero {
+  text-align: center;
+  padding: 70px 20px;
+  background: linear-gradient(135deg, #6c4cff, #9b7cff);
+  color: white;
+}
+
+.hero h1 {
+  font-size: 42px;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 19px;
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+.button {
+  display: inline-block;
+  background: white;
+  color: #6c4cff;
+  padding: 15px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.section {
+  padding: 55px 0;
+}
+
+.section h2 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.intro {
+  text-align: center;
+  max-width: 750px;
+  margin: auto;
+  font-size: 18px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+}
+
+.card h3 {
+  color: #6c4cff;
+  margin-bottom: 10px;
+}
+
+.offer {
+  background: #202124;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.offer h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.offer p {
+  max-width: 650px;
+  margin: 0 auto 25px;
+}
+
+.offer .button {
+  background: #6c4cff;
+  color: white;
+}
+
+.faq {
+  max-width: 750px;
+  margin: auto;
+}
+
+details {
+  background: white;
+  margin-bottom: 12px;
+  padding: 18px;
+  border-radius: 10px;
+}
+
+summary {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+footer {
+  background: white;
+  text-align: center;
+  padding: 30px 15px;
+  color: #666;
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HERO -->
+<header>
+  <div class="container">
+    <div class="logo">AI Made Easy</div>
+  </div>
+</header>
 
-  <header class="hero">
+<section class="hero">
+  <div class="container">
 
-    <div class="container">
+    <h1>Learn AI Without the Confusion</h1>
 
-      <div class="badge">
-        ✨ Beginner-Friendly AI Guide
-      </div>
+    <p>
+      Discover simple and practical ways to use Artificial Intelligence
+      in your everyday life — even if you're a complete beginner.
+    </p>
 
-      <h1>
-        AI Made <span>Easy</span>
-      </h1>
+    <a class="button"
+       href="https://raket.ph/grazilaleaostria16"
+       target="_blank"
+       rel="noopener">
+       Get AI Made Easy
+    </a>
 
-      <p>
-        Discover simple and practical ways to use Artificial Intelligence
-        in your everyday life — even if you're completely new to AI.
-      </p>
+  </div>
+</section>
 
-      <a
-        class="cta"
-        href="https://raket.ph/grazilaleaostria16"
-        target="_blank"
-        rel="noopener">
-        🚀 Get the AI Made Easy Guide
-      </a>
+<section class="section">
+  <div class="container">
 
-      <div class="small-note">
-        Simple • Practical • Beginner Friendly
-      </div>
+    <h2>AI Doesn't Have to Be Complicated</h2>
 
-    </div>
+    <p class="intro">
+      You don't need to be a technology expert to start using AI.
+      AI Made Easy was created to help beginners understand AI
+      and use it for useful everyday tasks.
+    </p>
 
-  </header>
+  </div>
+</section>
 
+<section class="section">
+  <div class="container">
 
-  <!-- INTRO -->
+    <h2>What You'll Learn</h2>
 
-  <section class="intro">
+    <div class="cards">
 
-    <div class="container">
-
-      <h2>
-        AI doesn't have to be complicated.
-      </h2>
-
-      <p>
-        You don't need to be a programmer or a technology expert.
-        This beginner-friendly guide helps you understand AI and
-        discover practical ways you can use it for work, content,
-        learning, creativity and everyday tasks.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- BENEFITS -->
-
-  <section class="section">
-
-    <div class="container">
-
-      <h2 class="section-title">
-        What Can AI Help You Do?
-      </h2>
-
-      <p class="section-subtitle">
-        Learn practical ways to save time, create better content
-        and make everyday tasks easier.
-      </p>
-
-      <div class="cards">
-
-        <div class="card">
-
-          <div class="icon">✍️</div>
-
-          <h3>Create Content</h3>
-
-          <p>
-            Get ideas for captions, posts, articles, scripts,
-            product descriptions and other content.
-          </p>
-
-        </div>
-
-
-        <div class="card">
-
-          <div class="icon">💡</div>
-
-          <h3>Generate Ideas</h3>
-
-          <p>
-            Use AI as a brainstorming partner whenever you need
-            fresh ideas for projects, business or content.
-          </p>
-
-        </div>
-
-
-        <div class="card">
-
-          <div class="icon">⏰</div>
-
-          <h3>Save Time</h3>
-
-          <p>
-            Let AI help you organize information, draft messages,
-            summarize text and simplify repetitive tasks.
-          </p>
-
-        </div>
-
-
-        <div class="card">
-
-          <div class="icon">📚</div>
-
-          <h3>Learn Faster</h3>
-
-          <p>
-            Ask AI to explain difficult topics in simple language
-            and create examples that are easier to understand.
-          </p>
-
-        </div>
-
-
-        <div class="card">
-
-          <div class="icon">📱</div>
-
-          <h3>Create Social Content</h3>
-
-          <p>
-            Turn simple ideas into TikTok, Facebook and other
-            social-media content concepts.
-          </p>
-
-        </div>
-
-
-        <div class="card">
-
-          <div class="icon">🚀</div>
-
-          <h3>Explore New Possibilities</h3>
-
-          <p>
-            Discover new ways AI can support your personal projects,
-            creativity and online goals.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- WHAT YOU GET -->
-
-  <section class="section inside">
-
-    <div class="container">
-
-      <h2 class="section-title">
-        What's Inside?
-      </h2>
-
-      <p class="section-subtitle">
-        Everything is explained in a simple, beginner-friendly way.
-      </p>
-
-
-      <div class="check-list">
-
-        <div class="check">
-          <span class="check-mark">✓</span>
-          <span>
-            A simple introduction to Artificial Intelligence
-          </span>
-        </div>
-
-        <div class="check">
-          <span class="check-mark">✓</span>
-          <span>
-            Easy-to-understand explanations of how AI works
-          </span>
-        </div>
-
-        <div class="check">
-          <span class="check-mark">✓</span>
-          <span>
-            Practical everyday uses for AI
-          </span>
-        </div>
-
-        <div class="check">
-          <span class="check-mark">✓</span>
-          <span>
-            Content creation ideas and examples
-          </span>
-        </div>
-
-        <div class="check">
-          <span class="check-mark">✓</span>
-          <span>
-            Helpful AI tips for beginners
-          </span>
-        </div>
-
-        <div class="check">
-          <span class="check-mark">✓</span>
-          <span>
-            Simple ideas you can start trying immediately
-          </span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- HOW IT WORKS -->
-
-  <section class="section">
-
-    <div class="container">
-
-      <h2 class="section-title">
-        Start Using AI in 3 Simple Steps
-      </h2>
-
-      <p class="section-subtitle">
-        No technical background required.
-      </p>
-
-
-      <div class="steps">
-
-        <div class="step">
-
-          <div class="number">1</div>
-
-          <h3>Learn</h3>
-
-          <p>
-            Understand the basics of AI using simple explanations
-            designed for beginners.
-          </p>
-
-        </div>
-
-
-        <div class="step">
-
-          <div class="number">2</div>
-
-          <h3>Practice</h3>
-
-          <p>
-            Try simple AI tasks and experiment with different
-            ideas that match your everyday needs.
-          </p>
-
-        </div>
-
-
-        <div class="step">
-
-          <div class="number">3</div>
-
-          <h3>Create</h3>
-
-          <p>
-            Use what you've learned to create, organize, learn
-            and work more efficiently.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- SOCIAL PROOF -->
-
-  <section class="section proof">
-
-    <div class="container">
-
-      <h2 class="section-title">
-        Made for Beginners
-      </h2>
-
-      <div class="quote">
-
-        <div class="stars">
-          ★★★★★
-        </div>
-
+      <div class="card">
+        <h3>🤖 Understand AI</h3>
         <p>
-          "AI looked complicated at first, but breaking it down
-          into simple everyday examples made it much easier to
-          understand."
+          Learn what Artificial Intelligence is and how it can
+          help you in everyday situations.
         </p>
+      </div>
 
-        <strong>
-          — AI Made Easy Reader
-        </strong>
+      <div class="card">
+        <h3>✍️ Create Better Content</h3>
+        <p>
+          Discover simple ways AI can help you write ideas,
+          captions, posts and other content.
+        </p>
+      </div>
 
+      <div class="card">
+        <h3>📱 Use AI on Your Phone</h3>
+        <p>
+          Learn practical AI techniques that you can use
+          directly from your smartphone.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>💡 Save Time</h3>
+        <p>
+          Use AI to simplify everyday tasks and get things
+          done more efficiently.
+        </p>
       </div>
 
     </div>
 
-  </section>
+  </div>
+</section>
 
+<section class="offer">
+  <div class="container">
 
-  <!-- FINAL CTA -->
+    <h2>Ready to Make AI Easier?</h2>
 
-  <section class="final-cta">
+    <p>
+      Get the AI Made Easy guide and start learning practical
+      AI skills step-by-step.
+    </p>
 
-    <div class="container">
+    <a class="button"
+       href="https://raket.ph/grazilaleaostria16"
+       target="_blank"
+       rel="noopener">
+       Get the Guide
+    </a>
 
-      <h2>
-        Ready to Make AI Easier?
-      </h2>
+  </div>
+</section>
 
-      <p>
-        Start learning practical ways to use AI and discover
-        what you can create with it.
-      </p>
+<section class="section">
+  <div class="container">
 
-      <a
-        class="cta"
-        href="https://raket.ph/grazilaleaostria16"
-        target="_blank"
-        rel="noopener">
-        📖 Get AI Made Easy
-      </a>
+    <h2>Frequently Asked Questions</h2>
 
-      <div class="small-note">
-        Start learning • Start creating • Start exploring
-      </div>
+    <div class="faq">
 
-    </div>
+      <details>
+        <summary>Is this guide for beginners?</summary>
+        <p>
+          Yes. The guide is designed for people who are
+          new to Artificial Intelligence.
+        </p>
+      </details>
 
-  </section>
+      <details>
+        <summary>Do I need to be good at technology?</summary>
+        <p>
+          No. The goal is to explain AI in a simple,
+          easy-to-understand way.
+        </p>
+      </details>
 
+      <details>
+        <summary>Can I use AI from my phone?</summary>
+        <p>
+          Yes. Many AI tools can be used directly from
+          a smartphone.
+        </p>
+      </details>
 
-  <!-- FAQ -->
-
-  <section class="section">
-
-    <div class="container">
-
-      <h2 class="section-title">
-        Frequently Asked Questions
-      </h2>
-
-      <div class="faq">
-
-        <details>
-
-          <summary>
-            Is this guide suitable for complete beginners?
-          </summary>
-
-          <p>
-            Yes. The guide is designed for people who are new
-            to Artificial Intelligence and want simple explanations
-            without complicated technical language.
-          </p>
-
-        </details>
-
-
-        <details>
-
-          <summary>
-            Do I need to know how to code?
-          </summary>
-
-          <p>
-            No. You do not need programming experience to understand
-            the basic concepts and everyday uses covered in the guide.
-          </p>
-
-        </details>
-
-
-        <details>
-
-          <summary>
-            What can I use AI for?
-          </summary>
-
-          <p>
-            AI can help with many everyday tasks including
-            brainstorming, writing, learning, content creation,
-            organization and idea generation.
-          </p>
-
-        </details>
-
-
-        <details>
-
-          <summary>
-            Can I use AI from my phone?
-          </summary>
-
-          <p>
-            Yes. Many AI tools can be accessed directly from a
-            smartphone, making it possible to learn and create
-            wherever you are.
-          </p>
-
-        </details>
-
-
-        <details>
-
-          <summary>
-            How do I get the guide?
-          </summary>
-
-          <p>
-            Tap any "Get AI Made Easy" button on this page.
-            It will take you to the product page where you can
-            learn more and purchase the guide.
-          </p>
-
-        </details>
-
-      </div>
+      <details>
+        <summary>How do I get the guide?</summary>
+        <p>
+          Tap any "Get AI Made Easy" button on this page.
+          You will be taken to the product page where
+          you can learn more and purchase the guide.
+        </p>
+      </details>
 
     </div>
 
-  </section>
-
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <div class="container">
-
-      <h3>
-        AI Made Easy
-      </h3>
-
-      <p>
-        Simple AI learning for everyday people.
-      </p>
-
-      <div class="social-links">
-
-        <a
-          href="https://www.tiktok.com/@grazilaleac"
-          target="_blank"
-          rel="noopener">
-          TikTok
-        </a>
-
-        <a
-          href="https://www.facebook.com/share/182mciP559/"
-          target="_blank"
-          rel="noopener">
-          Facebook
-        </a>
-
-        <a
-          href="https://raket.ph/grazilaleaostria16"
-          target="_blank"
-          rel="noopener">
-          Get the Guide
-        </a>
-
-      </div>
-
-      <p style="margin-top:22px;">
-        © 2026 AI Made Easy. All rights reserved.
-      </p>
-
-    </div>
-
-  </footer>
-
-
-</body>
-</html>
- 
+  </div>
+</section>
